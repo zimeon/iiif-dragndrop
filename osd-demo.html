@@ -36,15 +36,38 @@ function make_viewer(info_json_uri) {
     });
 }
 
-function extractImage(data) {
-    // Find image in the manifest JSON
+function extractImage(data,selected_canvas) {
+    // Find image in the manifest JSON, if selected_canvas
+    // is set then we will look for that one, else we'll just
+    // find the first.
+    //
+    // Returns without doing anything on failure.
+    //
     log("Parsed manifest, looking for image");
     if (data.hasOwnProperty('sequences')) {
         log("... found sequences");
         var sequence = data.sequences[0];
         if (sequence.hasOwnProperty('canvases')) {
             log("... found canvases");
-            var canvas = sequence.canvases[0];
+            var canvas;
+            if (selected_canvas) {
+                log("... looking for canvas " + selected_canvas);
+                // look for specific canvas
+                for (var i = 0; i < sequence.canvases.length; i++) {
+		    if (sequence.canvases[i].hasOwnProperty('@id') &&
+                        sequence.canvases[i]['@id']==selected_canvas) {
+	                canvas = sequence.canvases[i];
+                        log("... found specified canvas");
+                        break;
+                    }
+                }
+            }
+            if (!canvas) {
+                // take first canvas either because none was specified
+                // or because we failed to find that
+                log("... taking first canvas");
+                canvas = sequence.canvases[0];
+            }
             if (canvas.hasOwnProperty('images')) {
                 log("... found images");
                 var image = canvas.images[0];
@@ -70,7 +93,9 @@ function extractImage(data) {
 
 function manifestDrop(box,manifest,canvas) {
     log("Fetching manifest "+manifest);        
-    $.getJSON(manifest, extractImage);
+    $.getJSON(manifest, function (data) {
+        extractImage(data,canvas)
+    });
 }
 
 function imageDrop(box,image) {
