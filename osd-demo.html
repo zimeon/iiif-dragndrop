@@ -116,9 +116,22 @@ make_viewer("tetons/info.json");
 setupDropbox('container',manifestDrop,imageDrop);
 </script>
 
-<h3>Intended behavior</h3>
+<h2>Intended behavior</h2>
 
-<p>The OpenSeadragon viewer above is wrapped within a <code>&lt;div id=&quotcontainer&quot;&gt;</code> that serves as a dropzone in which IIIF drag and drop works. This demo is designed to provide some support for all three drop patterns described in <a href="index.html">IIIF Drag-and-drop</a>. Accepts manifest (first image from first canvas displayed, parsing is dumb and perhaps only works with manifests from e-codices..), manifest with canvas specified (first image from specified canvas displayed, parsing dumb), or an image info URI.</p>
+<p>The OpenSeadragon viewer above is wrapped within a <code>&lt;div id=&quot;container&quot;&gt;</code> that serves as a dropzone in which IIIF drag and drop works. This demo is designed to provide some support for all three drop patterns described in <a href="index.html">IIIF Drag-and-drop</a>. Accepts manifest (first image from first canvas displayed, parsing is dumb and perhaps only works with manifests from e-codices..), manifest with canvas specified (first image from specified canvas displayed, parsing dumb), or an image info URI.</p>
+
+<h3>Demo</h3>
+
+<ul>
+<li>Open up <a href="http://zimeon.github.io/iiif-dragndrop/sourcetest.html" target="_blank">http://zimeon.github.io/iiif-dragndrop/sourcetest.html</a> in a new window.</li>
+<li>Drag (click, hold, drag) one of the IIIF icons over the OpenSeadragon viewer and drop (release). Image will change and notes of the process will show in the log window.</li>
+<li>Behaviours for the three cases:
+  <ol>
+  <li>Manifest (with no canvas specified) - viewer will display the first image on the first canvas. This isn't likely to be very useful but there isn't much option to do more with a image-only (Presentation API unaware) viewer.</li>
+  <li>Manifest with canvas selected - viewer will display the first image on the selected canvas. In the most common case there is just one image on a canvas so the bahaviour will be as expected. However, this situation will not handle well the case of a canvas with multiple images.</li>
+  <li>Image - viewer will display the image. Behavious here is clear.</li>
+  </ol></li>
+</ul>
 
 </body>
 </html>
