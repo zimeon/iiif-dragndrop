@@ -1,0 +1,36 @@
+body {
+  background-color: #FFF;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 1ex 2em 1ex 2em;
+}
+
+h1 {
+  margin-bottom: 1em;
+  font-size: 160%;
+  color: #800;
+}
+
+h2 {
+  font-size: 130%;
+  color: #800;
+  margin-top: 0.3ex;
+  margin-bottom: 0.3ex;
+}
+
+h3, h4, h5, h6 {
+  font-size: 100%;
+  color: #800;
+  margin-top: 0.3ex;
+  margin-bottom: 0.3ex;
+}
+
+p { margin: 1em 0; }
+
+a         { color: #009; }
+a:visited { color: #909; }
+a:hover   { color: #000; } /* put second to act even for visited links */
+
+ul, ol, dl {
+  margin-left: 1.2em;
+  margin-bottom: 1ex;
+}
