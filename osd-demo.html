@@ -1,13 +1,13 @@
 <html>
 <head>
-  <title>IIIF Static Files Image API Demo</title>
+  <title>OpenSeadragon with IIIF Drag and Drop Demo</title>
   <script src="openseadragon/openseadragon.min.js"></script>
   <script src="jquery-1.11.1.min.js"></script>
   <script src="iiif-dragndrop.js"></script>
 </head>
 <body>
 
-<h1>IIIF Static Files Image API Demo</h1>
+<h1>OpenSeadragon with IIIF Drag and Drop Demo</h1>
 
 <div id="container" style="width: 605px; height: 405px;"></div>
 <div id="log" style="margin-top: 10px; height: 20ex; border: 2px solid green; width: 605px; overflow: auto;"></div>
@@ -36,11 +36,45 @@ function make_viewer(info_json_uri) {
     });
 }
 
+function extractImage(data) {
+    // Find image in the manifest JSON
+    log("Parsed manifest, looking for image");
+    if (data.hasOwnProperty('sequences')) {
+        log("... found sequences");
+        var sequence = data.sequences[0];
+        if (sequence.hasOwnProperty('canvases')) {
+            log("... found canvases");
+            var canvas = sequence.canvases[0];
+            if (canvas.hasOwnProperty('images')) {
+                log("... found images");
+                var image = canvas.images[0];
+                if (image.hasOwnProperty('resource')) {
+                    var resource = image.resource;
+                    log("... found resource");
+                    if (resource.hasOwnProperty('service')) {
+                        var service = resource.service;
+                        log("... found serviceresource");
+                        if (service.hasOwnProperty('@id')) {
+                            var id = service['@id'];
+                            log("... found @id, send to viewer" + id);
+                            make_viewer(id+'/info.json');
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    log("Failed to extract image from manifest");
+}
+
 function manifestDrop(box,manifest,canvas) {
-    make_viewer("tetons/info.json");
+    log("Fetching manifest "+manifest);        
+    $.getJSON(manifest, extractImage);
 }
 
 function imageDrop(box,image) {
+    // Image drop is simple, just direct OSD at the info.json
     make_viewer(image);
 }
 
