@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>IIIF Static Files Image API Demo</title>
+  <script src="openseadragon/openseadragon.min.js"></script>
+  <script src="jquery-1.11.1.min.js"></script>
+  <script src="iiif-dragndrop.js"></script>
+</head>
+<body>
+
+<h1>IIIF Static Files Image API Demo</h1>
+
+<div id="container" style="width: 605px; height: 405px;"></div>
+<div id="log" style="margin-top: 10px; height: 20ex; border: 2px solid green; width: 605px; overflow: auto;"></div>
+
+<script type="text/javascript">
+var linenum=0;
+function log(text) {
+    linenum=linenum+1
+    $('#log').prepend("[" + linenum + "] " + text + "<br>");
+}
+
+function make_viewer(info_json_uri) {
+
+    log("Making viewer for: "+info_json_uri);
+
+    $('#openseadragon').remove();
+    $('#authbox').empty();
+    $('#container').append('<div id="openseadragon" style="width: 600px; height: 400px; border: 2px solid purple" ></div>');
+    var where = $("#openseadragon");
+
+    var viewer = OpenSeadragon({
+        id: "openseadragon",
+        tileSources: info_json_uri,
+        showNavigator: true,
+        prefixUrl: "openseadragon/images/"
+    });
+}
+
+function manifestDrop(box,manifest,canvas) {
+    make_viewer("tetons/info.json");
+}
+
+function imageDrop(box,image) {
+    make_viewer(image);
+}
+
+// Start with default viewer
+make_viewer("tetons/info.json");
+setupDropbox('container',manifestDrop,imageDrop);
+</script>
+
+</body>
+</html>
