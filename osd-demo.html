@@ -43,6 +43,14 @@ function extractImage(data,selected_canvas) {
     //
     // Returns without doing anything on failure.
     //
+    // If just manifest:
+    // - look for startCanvas, use that if found
+    // - else first canvas
+    //
+    // Given canvas (found above or specified)
+    // - look for annotations in images, filters for images that have both IIIF api defined (via service) and are largest possible (pref full canvas)
+    // - if nothing with IIIF api then fail (could go to next canvas but mixed is unlikely)
+    //
     log("Parsed manifest, looking for image");
     if (data.hasOwnProperty('sequences')) {
         log("... found sequences");
@@ -77,7 +85,7 @@ function extractImage(data,selected_canvas) {
                     if (resource.hasOwnProperty('service')) {
                         var service = resource.service;
                         log("... found serviceresource");
-                        if (service.hasOwnProperty('@id')) {
+                        if (service.hasOwnProperty('@id')) { // FIXME - check context, find IIIF
                             var id = service['@id'];
                             log("... found @id, send to viewer" + id);
                             make_viewer(id+'/info.json');
@@ -107,6 +115,10 @@ function imageDrop(box,image) {
 make_viewer("tetons/info.json");
 setupDropbox('container',manifestDrop,imageDrop);
 </script>
+
+<h3>Intended behavior</h3>
+
+<p>The OpenSeadragon viewer above is wrapped within a <code>&lt;div id=&quotcontainer&quot;&gt;</code> that serves as a dropzone in which IIIF drag and drop works. This demo is designed to provide some support for all three drop patterns described in <a href="index.html">IIIF Drag-and-drop</a>. Accepts manifest (first image from first canvas displayed, parsing is dumb and perhaps only works with manifests from e-codices..), manifest with canvas specified (first image from specified canvas displayed, parsing dumb), or an image info URI.</p>
 
 </body>
 </html>

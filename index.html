@@ -1,5 +1,16 @@
 <h1 id="iiif-drag-and-drop-demo">IIIF Drag-and-drop demo</h1>
-<p><em>WARNING</em> - Work in progress! User beware</p>
+<p><em>WARNING</em> - Work in progress! These notes and demos are the result of work with <span class="citation">@aeschylus</span> &amp; <span class="citation">@anarchivist</span> at the IIIF Shimathon 2015-09-29/30, UPenn.</p>
+<h2 id="demo-pages">Demo pages</h2>
+<ul>
+<li>Demo home: <a href="http://zimeon.github.io/iiif-dragndrop" class="uri">http://zimeon.github.io/iiif-dragndrop</a></li>
+<li>Source page: <a href="http://zimeon.github.io/iiif-dragndrop/sourcetest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/sourcetest.html</a></li>
+<li>Drop test: <a href="http://zimeon.github.io/iiif-dragndrop/droptest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/droptest.html</a></li>
+<li>OpenSeadragon drop demo: <a href="http://zimeon.github.io/iiif-dragndrop/osd-demo.html" class="uri">http://zimeon.github.io/iiif-dragndrop/osd-demo.html</a></li>
+<li>Mirador drop demo: <a href="http://sul-reader-test.stanford.edu/drag_and_drop/" class="uri">http://sul-reader-test.stanford.edu/drag_and_drop/</a> running on Stanford server based on the <a href="https://github.com/IIIF/mirador/tree/drag_N_drop_manifest">drag_N_drop_manifest branch of Mirador</a></li>
+</ul>
+<h2 id="scenarios">Scenarios</h2>
+<p><em>Scenario 1:</em> User has a <a href="https://github.com/IIIF/mirador/wiki">Mirador</a> window open (or other IIIF multi-up viewer). In another window, the user is browsing or using a search interface, and locates an image, book, manuscript, etc. that they want to view in Mirador. The page for that object includes an IIIF icon that they drag and drop to Mirador. Mirador then adds the image/manifest to its index and displays it. The user can then repeat this at another site to add additional images, perhaps adding a set of different witnesses of a manuscript that they wish to compare.</p>
+<p><em>Scenario 2</em>: User has a simple IIIF image viewer open (such as <a href="https://openseadragon.github.io/">OpenSeadragon</a>). In another window, the user is browsing or using a search interface, and locates an image that they want to view in the viewer that have open, perhaps because it offers different functionality than the default one provided for the collection they are browsing. The page for that image includes an IIIF icon that they drag and drop to their viewer. Their viewer replaces its current image with the image dropped in. (The image dropped in might be a single IIIF image or it might be one image from a larger set described by a manifest).</p>
 <h2 id="html-pattern-for-drag-and-drop">HTML pattern for drag and drop</h2>
 <p>The source page for drag and drop should include the standard IIIF logo wrapped in a hyperlink. The URI of the hyperlink provides a default target in case clicked by the user, followed by a dummy query string with the <code>manifest</code>, <code>canvas</code> or <code>image</code> <code>info.json</code> URIs used to implement the draf and drop. The default target could be a help page or perhaps open a particular viewer showing the image or manifest. The query parameters are:</p>
 <ul>
@@ -13,10 +24,3 @@
 &lt;/a&gt;</code></pre>
 <p>The dummy version of the proposed <em>&quot;standard IIIF drag and drop logo&quot;</em> used for this demo is:</p>
 <p><img src="iiif-dragndrop-100px.png" alt="IIIF Drag-n-drop" /></p>
-<h2 id="demo-pages">Demo pages</h2>
-<ul>
-<li>Demo home: <a href="http://zimeon.github.io/iiif-dragndrop" class="uri">http://zimeon.github.io/iiif-dragndrop</a></li>
-<li>Source page: <a href="http://zimeon.github.io/iiif-dragndrop/sourcetest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/sourcetest.html</a></li>
-<li>Drop test: <a href="http://zimeon.github.io/iiif-dragndrop/droptest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/droptest.html</a></li>
-<li>OpenSeadragon drop demo: <a href="http://zimeon.github.io/iiif-dragndrop/osd-demo.html" class="uri">http://zimeon.github.io/iiif-dragndrop/osd-demo.html</a></li>
-</ul>
