@@ -28,4 +28,4 @@ Source page: <http://zimeon.github.io/iiif-dragndrop/>
 
 Drop test: <http://zimeon.github.io/iiif-dragndrop/droptest.html>
 
-OpenSeadragon drop demo: <http://zimeon.github.io/iiif-dragndrop/osd-demi.html>
+OpenSeadragon drop demo: <http://zimeon.github.io/iiif-dragndrop/osd-demo.html>
