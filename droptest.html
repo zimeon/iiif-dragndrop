@@ -2,8 +2,9 @@
 <head>
 <!-- see http://jsfiddle.net/r1ttxt31 -->
 <title>IIIF Drag-n-drop demo</title>
+<script src="iiif-dragndrop.js"></script>
 <style>
-#dropbox{
+#dropbox {
     margin-top: 10px;
     width: 300px;
     height: 300px;
@@ -17,47 +18,8 @@
 
 <p>Drag something in the drop box below.</p>
 <div id="dropbox"></div>
-
 <script>
-function parseQuery(qstr) {
-    // Parse query component of URI 
-    var query = {};
-    var a = qstr.substr(1).split('&');
-    for (var i = 0; i < a.length; i++) {
-        var b = a[i].split('=');
-        query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
-    }
-    return query;
-}
-
-var box = document.getElementById('dropbox');
-
-box.addEventListener('dragover', function (e) {
-    e.preventDefault();
-    box.style.backgroundColor = "#AAA";
-});
-
-box.addEventListener('dragleave', function (e) {
-    box.style.backgroundColor = "#BBB";
-    box.innerHTML = "";
-});
-
-box.addEventListener('drop', function (e) {
-    e.preventDefault();
-    var parser = document.createElement('a');
-    parser.href = e.dataTransfer.getData("text/uri-list");
-    var query = parseQuery(parser.search);
-    if ('manifest' in query) {
-        box.style.backgroundColor = "#0A0";
-        box.innerHTML = "[manifest dropped]<br />manifest = " + query['manifest'] + "<br />canvas = " + query['canvas'];
-    } else if ('image' in query) {
-        box.style.backgroundColor = "#0A0";
-        box.innerHTML = "[image dropped]<br />image = " + query['image'];
-    } else {
-        box.style.backgroundColor = "#BBB";
-        box.innerHTML = "[unknown drop]";
-    }
-});
+setupDropbox();
 </script>
 
 </body>
