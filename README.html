@@ -1,0 +1,22 @@
+<h1 id="iiif-drag-and-drop-demo">IIIF Drag-and-drop demo</h1>
+<p><em>WARNING</em> - Work in progress! User beware</p>
+<h2 id="html-pattern-for-drag-and-drop">HTML pattern for drag and drop</h2>
+<p>The source page for drag and drop should include the standard IIIF logo wrapped in a hyperlink. The URI of the hyperlink provides a default target in case clicked by the user, followed by a dummy query string with the <code>manifest</code>, <code>canvas</code> or <code>image</code> <code>info.json</code> URIs used to implement the draf and drop. The default target could be a help page or perhaps open a particular viewer showing the image or manifest. The query parameters are:</p>
+<ul>
+<li><code>manifest</code> - URI of an IIIF Presentation API manifest.</li>
+<li><code>canvas</code> - URI of currently selected canvas within the manifest. If no <code>canvas</code> is specified then the target application will use its default behaviour to present the manifest. (Has no meaning unless <code>manifest</code> is given.)</li>
+<li><code>image</code> - URI of an IIIF Image API <code>info.json</code>. This is an alternative to specifying a <code>manifest</code> for use in situations where the source implements only the Image API.</li>
+</ul>
+<p>HTML example:</p>
+<pre><code>&lt;a href=&quot;default_target?manifest=manifest_URI&amp;canvas=canvas_URI&quot;&gt;
+  &lt;img src=&quot;iiif-dragndrop-100px.png&quot; alt=&quot;IIIF Drag-n-drop&quot;/&gt;
+&lt;/a&gt;</code></pre>
+<p>The dummy version of the propose <em>standard IIIF drag and drop logo</em> used for this demo is:</p>
+<div class="figure">
+<img src="iiif-dragndrop-100px.png" alt="IIIF Drag-n-drop" />
+<p class="caption">IIIF Drag-n-drop</p>
+</div>
+<h2 id="demo-pages">Demo pages</h2>
+<p>Source page: <a href="http://zimeon.github.io/iiif-dragndrop/" class="uri">http://zimeon.github.io/iiif-dragndrop/</a></p>
+<p>Drop test: <a href="http://zimeon.github.io/iiif-dragndrop/droptest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/droptest.html</a></p>
+<p>OpenSeadragon drop demo: <a href="http://zimeon.github.io/iiif-dragndrop/osd-demo.html" class="uri">http://zimeon.github.io/iiif-dragndrop/osd-demo.html</a></p>
