@@ -24,8 +24,7 @@ The dummy version of the propose *standard IIIF drag and drop logo* used for thi
 
 ## Demo pages
 
-Source page: <http://zimeon.github.io/iiif-dragndrop/>
-
-Drop test: <http://zimeon.github.io/iiif-dragndrop/droptest.html>
-
-OpenSeadragon drop demo: <http://zimeon.github.io/iiif-dragndrop/osd-demo.html>
+  * Demo home: <http://zimeon.github.io/iiif-dragndrop>
+  * Source page: <http://zimeon.github.io/iiif-dragndrop/sourcetest.html>
+  * Drop test: <http://zimeon.github.io/iiif-dragndrop/droptest.html>
+  * OpenSeadragon drop demo: <http://zimeon.github.io/iiif-dragndrop/osd-demo.html>
