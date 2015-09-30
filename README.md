@@ -1,4 +1,4 @@
-# IIIF Drag-and-drop demo
+# IIIF Drag-and-drop
 
 *WARNING* - Work in progress! These notes and demos are the result of work with @aeschylus & @anarchivist at the IIIF Shimathon 2015-09-29/30, UPenn.
 
