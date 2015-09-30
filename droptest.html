@@ -3,6 +3,7 @@
 <!-- see http://jsfiddle.net/r1ttxt31 -->
 <title>IIIF Drag-n-drop demo -- Drop target test</title>
 <script src="iiif-dragndrop.js"></script>
+<script src="jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="css/main.css"/>
 <style>
 #dropbox {
@@ -20,7 +21,15 @@
 <p>Drag something in the drop box below, the JavaScript will attempt to pull out manifest, canvas and/or image info.json information.</p>
 <div id="dropbox"></div>
 <script>
-setupDropbox();
+function manifestDrop(box,manifest,canvas) {
+    box.style.backgroundColor = "#0A0";
+    box.innerHTML = "[manifest dropped]<br />manifest = " + manifest + "<br />canvas = " + canvas;
+}
+function imageDrop(box,image) {
+    box.style.backgroundColor = "#0A0";
+    box.innerHTML = "[image dropped]<br />image = " + image;
+}
+setupDropbox("dropbox",manifestDrop,imageDrop);
 </script>
 
 </body>
