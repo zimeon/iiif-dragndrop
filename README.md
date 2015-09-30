@@ -18,7 +18,7 @@ HTML example:
 </a>
 ```
 
-The dummy version of the propose *standard IIIF drag and drop logo* used for this demo is:
+The dummy version of the proposed *"standard IIIF drag and drop logo* used for this demo is":
 
 ![IIIF Drag-n-drop](iiif-dragndrop-100px.png)
 

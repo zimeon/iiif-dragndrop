@@ -1,2 +1,2 @@
 all:
-	pandoc README.md -o index.html
+	pandoc -o index.html -f markdown-implicit_figures README.md
