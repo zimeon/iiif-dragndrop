@@ -12,8 +12,8 @@
 
 <p>It isn't clear that there is a use case for drag and drop into a simple single-image viewer, but it is useful to demonstrate the functionality.</p> 
 
-<div id="container" style="width: 605px; height: 405px; padding: 15px;"></div>
-<div id="log" style="margin-top: 10px; padding: 15px; height: 20ex; border: 2px solid green; width: 605px; overflow: auto;"></div>
+<div id="container" style="width: 605px; height: 405px; padding: 15px; border: 2px solid purple"></div>
+<div id="log" style="margin-top: 10px; margin-bottom: 15px; padding: 15px; height: 20ex; border: 2px solid green; width: 605px; overflow: auto;"></div>
 
 <script type="text/javascript">
 var linenum=0;
@@ -28,7 +28,7 @@ function make_viewer(info_json_uri) {
 
     $('#openseadragon').remove();
     $('#authbox').empty();
-    $('#container').append('<div id="openseadragon" style="width: 600px; height: 400px; border: 2px solid purple" ></div>');
+    $('#container').append('<div id="openseadragon" style="width: 600px; height: 400px;"></div>');
     var where = $("#openseadragon");
 
     var viewer = OpenSeadragon({
