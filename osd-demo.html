@@ -134,6 +134,7 @@ setupDropbox('container',manifestDrop,imageDrop);
   <li>Manifest with canvas selected - viewer will display the first image on the selected canvas. In the most common case there is just one image on a canvas so the bahaviour will be as expected. However, this situation will not handle well the case of a canvas with multiple images.</li>
   <li>Image - viewer will display the image. Behavious here is clear.</li>
   </ol></li>
+<li>Paste of a URI into OpenSeadragon also works, the JavaScript wrapper attempts to read JSON from the URI and determines whether it is an image <code>info.json</code> (in which case the image is displayed), or a manifest (in which case the first image on the first canvas is displayed).</li>
 </ul>
 
 </body>
