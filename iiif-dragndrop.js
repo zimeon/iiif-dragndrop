@@ -25,6 +25,7 @@ function dropTest(data,uri,box,manifest_drop_fn,image_drop_fn) {
             console.log("paste: manifest = " + uri)
             manifest_drop_fn(box,uri);
         } else if (data['@context'] === 'http://iiif.io/api/image/2/context.json' ||
+		   data['@context'] === 'http://iiif.io/api/image/1/context.json' ||
                    data['@context'] === 'http://library.stanford.edu/iiif/image-api/1.1/context.json') {
             console.log("paste: image = " + uri)
             image_drop_fn(box,uri);
