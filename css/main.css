@@ -36,9 +36,12 @@ ul, ol, dl {
 }
 
 table {
+  border-collapse: collapse;
   border: 1px solid black;
   text-align: left;
   vertical-align: middle;
+  margin-top: 0.3ex;
+  margin-bottom: 0.3ex;
 }
 
 tr {
@@ -47,10 +50,11 @@ tr {
 
 td {
   border: 1px solid black;
-  padding: 3px;
+  padding: 0.3ex;
 }
 
 th {
   background-color: #600;
   color: #fff;
+  padding: 0.3ex;
 }
