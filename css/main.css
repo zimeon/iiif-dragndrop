@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-  margin-bottom: 1em;
+  margin-bottom: 1ex;
   font-size: 160%;
   color: #800;
 }
@@ -37,23 +37,24 @@ ul, ol, dl {
 
 table {
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 2px solid black;
   text-align: left;
   vertical-align: middle;
-  margin-top: 0.3ex;
-  margin-bottom: 0.3ex;
+  margin-top: 1ex;
+  margin-bottom: 1ex;
 }
 
 tr {
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 td {
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 0.3ex;
 }
 
 th {
+  border: 2px solid black;
   background-color: #600;
   color: #fff;
   padding: 0.3ex;
