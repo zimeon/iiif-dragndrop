@@ -4,17 +4,60 @@
   <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-<a href="https://github.com/zimeon/iiif-dragndrop"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 <h1 id="iiif-drag-and-drop">IIIF Drag-and-drop</h1>
-<p><em>WARNING</em> - Work in progress! These notes and demos are the result of work with <span class="citation">[@aeschylus]</span>(https://github.com/aeschylus) &amp; <span class="citation">[@anarchivist]</span>(https://github.com/anarchivist) at the IIIF Shimathon 2015-09-29/30, UPenn.</p>
+
+<p><em>WARNING</em> - Work in progress! These notes and demos are the result of work with [<a href="https://github.com/aeschylus">@aeschylus</span>] &amp; [<a href="https://github.com/anarchivist">@anarchivist</a>] at the IIIF Shimathon 2015-09-29/30, UPenn.</p>
+
+<p><em>STATUS</em> - Although these pages have formed the basis of most drag-and-drop implementations in IIIF tools to date, these are UNOFFICIAL notes which WILL BE REPLACED WITH A FORMAL IMPORT TO VIEWERS SPECIFICATION to be developed by the <a href="http://iiif.io/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>. (2017-09-08)</p>
+
 <h2 id="demo-pages">Demo pages</h2>
 <ul>
 <li>Demo home: <a href="http://zimeon.github.io/iiif-dragndrop" class="uri">http://zimeon.github.io/iiif-dragndrop</a></li>
 <li>Source page: <a href="http://zimeon.github.io/iiif-dragndrop/sourcetest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/sourcetest.html</a></li>
 <li>Drop test: <a href="http://zimeon.github.io/iiif-dragndrop/droptest.html" class="uri">http://zimeon.github.io/iiif-dragndrop/droptest.html</a></li>
 <li>OpenSeadragon drop demo: <a href="http://zimeon.github.io/iiif-dragndrop/osd-demo.html" class="uri">http://zimeon.github.io/iiif-dragndrop/osd-demo.html</a></li>
-<li>Mirador drop demo: <a href="http://sul-reader-test.stanford.edu/drag_and_drop/" class="uri">http://sul-reader-test.stanford.edu/drag_and_drop/</a> running on Stanford server based on the <a href="https://github.com/IIIF/mirador/tree/drag_N_drop_manifest">drag_N_drop_manifest branch of Mirador</a></li>
 </ul>
+
+<h2 id="implementation">Implementation status</h2>
+
+<table>
+<tr>
+    <th>Viewer application<br/>M = Manifest drop<br/>C = Manifest with Canvas<br/>I = Image drop</th>
+    <th>Chrome</th>
+    <th>Firefox</th>
+    <th>Safari</th>
+    <th>Notes</th>
+</tr>
+<tr>
+    <td><a href="http://projectmirador.org/demo/">Mirador</a></td>
+    <td>M & C only</td>
+    <td>M & C only</td>
+    <td>no</td>
+    <td>As of 2017-08-09 the current Mirador demo works with Chrome/Firefox/Safari, but the demo at http://projectmirador.org/demo is not up to date and does not work with Firefox.</td>
+</tr>
+<tr>
+    <td><a href="http://universalviewer.io/examples/">Universal Viewer</a></td>
+    <td>M, C doesn't select canvas</td>
+    <td></td>
+    <td>no</td>
+    <td>Tested 2017-09-08.</td>
+</tr>
+<tr>
+    <td><a href="http://zimeon.github.io/iiif-dragndrop/osd-demo.html">OpenSeadragon drop demo</a></td>
+    <td>I only (though logs other drops)</td>
+    <td>I only (though logs other drops)</td>
+    <td>no</td>
+    <td>Tested 2017-09-08.</td>
+</tr>
+<tr>
+    <td><a href="http://zimeon.github.io/iiif-dragndrop/droptest.html">Drop target test</a></td>
+    <td>M, C, I</td>
+    <td>M, C, I</td>
+    <td>no</td>
+    <td>Tested 2017-09-08.</td>
+</tr>
+</table>
+
 <h2 id="use-cases">Use cases</h2>
 <p><em>Use case &quot;Add to viewer&quot;:</em> User has a <a href="https://github.com/IIIF/mirador/wiki">Mirador</a> window open (or other IIIF multi-up viewer). In another window, the user is browsing or using a search interface, and locates an image, book, manuscript, etc. that they want to view in Mirador. The page for that object includes an IIIF icon that they drag and drop to Mirador. Mirador then adds the image/manifest to its index and displays it. The user can then repeat this at another site to add additional images, perhaps adding a set of different witnesses of a manuscript that they wish to compare.</p>
 <p><em>Use case &quot;Add to manifest&quot;</em>: User has an IIIF application open providing the ability to edit a collection of images/canvases (manifest). (such facilities might be added to <a href="https://github.com/IIIF/mirador/wiki">Mirador</a> or <a href="https://github.com/britishlibrary/UniversalViewer">UniversalViewer</a>). In another window, the user is browsing or using a search interface, and locates an image that they want to add to the collection of images they are creating. The page for that image includes an IIIF icon that they drag and drop to their application. Their application adds the image dropped in to the collection. (The image dropped in might be a single IIIF image, or it might be one image from a larger set described by a manifest in which case other metadata can be copied also).</p>

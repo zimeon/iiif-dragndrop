@@ -34,3 +34,23 @@ ul, ol, dl {
   margin-left: 1.2em;
   margin-bottom: 1ex;
 }
+
+table {
+  border: 1px solid black;
+  text-align: left;
+  vertical-align: middle;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+th {
+  background-color: #600;
+  color: #fff;
+}
